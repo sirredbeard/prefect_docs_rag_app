@@ -4,7 +4,7 @@ Uses the [Prefect](https://github.com/PrefectHQ/prefect) workflow orchestration 
 
 * Based on the [Google BERT model](https://huggingface.co/google-bert/bert-base-uncased), which the script will download
 * Leverages the [ONNX Runtime](https://onnx.ai/) for platform/architecture portability
-* Clones or pulls the Prefect repository then extracts and converts .mdx files to create embeddings, poorly
+* Clones or pulls the Prefect repository then extracts and converts .mdx files to create embeddings, *poorly*
 * Uses FastAPI to serve an API to the model
 * Uses Flask to create a simple chatbot interface
 
