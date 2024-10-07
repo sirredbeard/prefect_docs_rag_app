@@ -1,0 +1,12 @@
+gitpython
+html2text
+markdown
+numpy
+onnxruntime
+requests
+uvicorn
+fastapi
+flask
+pydantic
+prefect
+transformers
