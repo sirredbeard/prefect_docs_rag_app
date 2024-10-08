@@ -27,3 +27,12 @@ python3 main.py
 ## Use
 
 Browse to [127.0.0.1:5000](http://127.0.0.1:5000/) after deploying.
+
+## TODO / Known Issues
+
+- Improve handling of the global embeddings variable, currently hacky
+- The CUDA provider works fine with the ONNX runtime for creating embeddings but not for inferencing, it reports as unavailable and then reverts to CPU, has the runtime not freed up the CUDA provider?
+- Instead of using `process` from `multiprocessing` use Prefect-native [task runners](https://docs.prefect.io/3.0/develop/task-runners) to serve the API and web frontend simulteanously
+- Switch to a better model than BERT, preference would be another SLM, like Phi-3, but because ONNX has built-in tokenizer support for BERT it was easier to start with BERT, did some testing with Phi-3 but without CUDA on inferencing it was very slow to respond, so reverted to BERT to complete the initial goals
+- Improve conversion of `.mdx` files to plain text, currently using `html2txt`, tried `BeautifulSoup` but wasn't much better, still a fair bit of HTML and CSS gets through to responses *or* implement markdown/html rendering in the responses to parse HTML/CSS/.mdx
+- Tune the embeddings logic to provide better, more accurate responses, currently using simple cosine similarity, sometimes answers are completely random or non-responsive
